@@ -26,3 +26,7 @@ Netlify / Vercel / Cloudflare Pages: publish the `frontend` folder (`netlify.tom
 
 ## Public APIs used (no keys)
 Lanyard, CoinGecko, Binance market data, open.er-api.com, fawazahmed0 currency-api.
+
+
+dont forget to give me credits
+:) hehe
