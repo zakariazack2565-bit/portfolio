@@ -1,0 +1,12 @@
+[build]
+  publish = "frontend"
+
+[[redirects]]
+  from = "/tools"
+  to = "/tools/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/tools/:name"
+  to = "/tools/:name.html"
+  status = 200

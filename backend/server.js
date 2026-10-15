@@ -11,7 +11,8 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     return res.end(JSON.stringify({ discordId: process.env.DISCORD_USER_ID || '1433506876661694544' }));
   }
-  const file = path.join(root, url === '/' ? 'index.html' : url === '/tools' ? 'tools.html' : path.normalize(url));
+  const rel = url === '/' ? 'index.html' : /^\/tools\/?$/.test(url) ? 'tools/index.html' : /^\/tools\/[\w-]+$/.test(url) ? url.slice(1) + '.html' : path.normalize(url);
+  const file = path.join(root, rel);
   if (!file.startsWith(root)) { res.writeHead(403); return res.end(); }
   fs.readFile(file, (e, data) => {
     if (e) { res.writeHead(404); return res.end('Not found'); }

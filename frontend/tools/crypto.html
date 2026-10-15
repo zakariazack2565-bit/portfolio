@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crypto Prices — Zack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/fx.css"><link rel="stylesheet" href="/css/tools.css">
+</head><body data-page="crypto">
+<header id="nav"><div class="bar glass">
+  <a class="logo" href="/">Zack</a>
+  <nav id="links"><a href="/">Home</a><a href="/tools">All tools</a></nav>
+  <a class="btn primary sm" href="/#contact">Contact Me</a>
+  <button id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+</div></header>
+<main class="wrap tools"><a class="back" href="/tools">← All tools</a>
+<section id="prices" class="tool reveal"><div class="meta"><h2>Crypto prices</h2><div class="live" id="plive"><b></b><span>CONNECTING</span></div></div><div class="seg" id="seg"></div><div class="ov" id="ovbox" hidden>1 USD = <input id="ov" type="number" step="0.01" placeholder="auto"> <span id="ovc"></span><small class="sd">Optional: type your local or P2P rate to match your app.</small></div><div id="plist"></div><p class="sd warn">Estimates are a simple model: half of the recent move over the same window repeats, with a ±1σ volatility range. It is a projection, not a prediction or financial advice. Real prices can go either way. Candles come from Binance, with CoinGecko as backup. USDT (pegged) has none.<span id="jnote"></span></p>
+    <div class="meta"><span id="pnote" class="sd">Loading…</span><button class="btn sm" id="pref">Refresh</button></div></section></main>
+<footer class="wrap"><p>© 2026 Zack. Built with code, curiosity and way too much caffeine.</p><a class="btn sm" href="/">← Back home</a></footer>
+<script src="/js/tools.js"></script>
+</body></html>
