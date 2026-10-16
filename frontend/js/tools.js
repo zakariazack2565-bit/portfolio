@@ -185,7 +185,7 @@ HOME PAGE
 6. Projects: card grid driven by a JS array (name, description, technology badges, icon, optional GitHub and live-demo buttons), easy to extend.
 7. Tools section: cards linking to /tools.
 8. "Find me around the internet": GitHub first ({{gh}}), then Discord and Telegram ({{tg}}), all opening in new tabs.
-9. Contact Me card with {{email}}, Discord, Telegram and GitHub. Footer with social links.
+9. Contact Me card with {{mail}}, Discord, Telegram and GitHub. Footer with social links.
 
 EFFECTS
 Cursor glow and ring, a card spotlight that follows the mouse, 3D tilt on the Discord card, magnetic buttons, scroll reveal with stagger, heading decode effect, a tech marquee, an animated conic-gradient border on the Discord card, confetti on copy, and a Konami-code easter egg.
