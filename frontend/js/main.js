@@ -65,7 +65,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   if (reduced) return;
   const c = $('bg'), x = c.getContext('2d'); let w, h, raf, ps = [];
   const size = () => { w = c.width = innerWidth; h = c.height = innerHeight; ps = Array.from({ length: Math.min(55, Math.floor(w / 28)) }, () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.8 + .4, v: Math.random() * .25 + .05, a: Math.random() * .5 + .2 })); };
-  const draw = () => { x.clearRect(0, 0, w, h); for (const p of ps) { p.y -= p.v; if (p.y < -5) { p.y = h + 5; p.x = Math.random() * w; } x.beginPath(); x.arc(p.x, p.y, p.r, 0, 6.28); x.fillStyle = `rgba(168,85,247,${p.a})`; x.shadowBlur = 8; x.shadowColor = '#a855f7'; x.fill(); } raf = requestAnimationFrame(draw); };
+  const draw = () => { if (c.classList.contains('off')) return; x.clearRect(0, 0, w, h); for (const p of ps) { p.y -= p.v; if (p.y < -5) { p.y = h + 5; p.x = Math.random() * w; } x.beginPath(); x.arc(p.x, p.y, p.r, 0, 6.28); x.fillStyle = `rgba(168,85,247,${p.a})`; x.shadowBlur = 8; x.shadowColor = '#a855f7'; x.fill(); } raf = requestAnimationFrame(draw); };
   size(); draw(); addEventListener('resize', size);
   document.addEventListener('visibilitychange', () => { cancelAnimationFrame(raf); if (!document.hidden) draw(); });
 })();

@@ -1,0 +1,21 @@
+/* Mobile + small-screen fixes for every page. Loaded last. */
+html,body{max-width:100%;overflow-x:hidden}img,canvas,video,textarea{max-width:100%}
+#nav{padding-top:calc(10px + env(safe-area-inset-top,0px))}
+footer{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
+@media(max-width:720px){
+ #nav{padding-left:10px;padding-right:10px}.bar{padding:8px 8px 8px 16px;gap:10px}
+ .bar>.btn.sm{display:inline-flex;padding:8px 14px;font-size:13px}
+ .wrap{padding:48px 16px 0}.hero{padding:92px 16px 24px;gap:28px}
+ h1{font-size:clamp(40px,12.5vw,60px)!important;line-height:1.05}
+ .h{font-size:clamp(26px,8vw,34px)}.lead{font-size:16px}
+ .row .btn{flex:1 1 auto;justify-content:center}.hero-live{max-width:100%}
+ .dc{min-height:0}.act .art{width:96px;height:96px}
+ .tech{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}.tc{padding:16px 6px}
+ .vibe,.contact{padding:24px 18px}.contact .row .btn{width:100%}
+ .marq span{font-size:40px}.marq em{font-size:22px}
+ .tools{padding-top:96px}.tool{padding:18px;border-radius:24px}.calc{max-width:100%}.keys button{height:52px}
+ .tcard{padding:24px}.tcard h2{padding-right:34px}
+ .coinrow{padding:12px 14px;gap:10px}.cp b{font-size:15px}.det{padding:0 14px 14px}
+ input,select,textarea{font-size:16px}
+ .toast{font-size:13px;padding:10px 14px}footer{padding:56px 16px 24px}}
+@media(max-width:380px){.res4{grid-template-columns:1fr}.coin{width:calc((100% - 28px)/3)}.btn{padding:11px 16px}}

@@ -21,4 +21,9 @@ body{background:color-mix(in srgb,rgb(var(--pr)) 5%,#050507)}
 .dots button:hover,.dots button.on{background:rgb(var(--pr));border-color:rgb(var(--pr));box-shadow:0 0 12px rgb(var(--pr));transform:scale(1.35)}
 .dots span{position:absolute;right:24px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:12px;padding:3px 10px;border-radius:999px;background:rgba(10,10,14,.9);opacity:0;pointer-events:none;transition:.2s}
 .dots button:hover span{opacity:1}
-@media(max-width:900px){.hud,.dots{display:none}}
+@media(max-width:900px){
+.dots{display:none}
+.hud{right:auto;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));font-size:12px;padding:8px 14px}
+.toasts{bottom:auto;top:76px;left:12px;right:12px}
+.glass{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.aurora i:nth-child(3){display:none}}
