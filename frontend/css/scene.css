@@ -1,0 +1,24 @@
+/* 3D scene + scroll-driven theme. JS sets --p, --p2, --pr (r,g,b) and --cr while you scroll. */
+:root{--pr:168,85,247;--cr:28px;--glow:0 0 40px rgba(var(--pr),.28)}
+body{background:color-mix(in srgb,rgb(var(--pr)) 5%,#050507)}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.4s}#scene.on{opacity:1}
+#bg.off{opacity:0;transition:opacity 1s}
+.aurora i,.aurora i:nth-child(2){background:radial-gradient(circle,rgba(var(--pr),.2),transparent 62%)}
+.badge{background:rgba(var(--pr),.12);border-color:rgba(var(--pr),.35)}
+#links a:hover{background:rgba(var(--pr),.14)}
+.sub{color:color-mix(in srgb,rgb(var(--pr)) 55%,#fff)}
+.card,.tc,.tool,.vibe,.coincard{border-radius:var(--cr)}
+.card:hover,.tc:hover,.vibe:hover{border-color:rgba(var(--pr),.6)}
+.card:hover,.tc:hover,.act:hover,.vibe:hover,.contact:hover,.dc:hover{background-image:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(var(--pr),.2),transparent 70%)}
+.chip{background:rgba(var(--pr),.15);border-color:rgba(var(--pr),.4)}
+.vibe{border-color:rgba(var(--pr),.5)}
+.reveal.in{animation:rev3d .9s cubic-bezier(.2,.8,.2,1) backwards;transform-origin:50% 100%}
+@keyframes rev3d{from{opacity:0;transform:perspective(900px) rotateX(18deg) translateY(44px) scale(.95)}}
+.hud{position:fixed;right:20px;bottom:20px;z-index:45;padding:10px 16px;border-radius:999px;font-size:13px;display:flex;gap:8px;align-items:center;border-color:rgba(var(--pr),.45)}
+.hud b{color:rgb(var(--pr))}.hud em{font-style:normal;color:var(--mut)}
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:45;display:flex;flex-direction:column;gap:12px}
+.dots button{position:relative;width:12px;height:12px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);background:none;cursor:pointer;padding:0;transition:.3s}
+.dots button:hover,.dots button.on{background:rgb(var(--pr));border-color:rgb(var(--pr));box-shadow:0 0 12px rgb(var(--pr));transform:scale(1.35)}
+.dots span{position:absolute;right:24px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:12px;padding:3px 10px;border-radius:999px;background:rgba(10,10,14,.9);opacity:0;pointer-events:none;transition:.2s}
+.dots button:hover span{opacity:1}
+@media(max-width:900px){.hud,.dots{display:none}}

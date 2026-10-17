@@ -188,7 +188,7 @@ HOME PAGE
 9. Contact Me card with {{mail}}, Discord, Telegram and GitHub. Footer with social links.
 
 EFFECTS
-Cursor glow and ring, a card spotlight that follows the mouse, 3D tilt on the Discord card, magnetic buttons, scroll reveal with stagger, heading decode effect, a tech marquee, an animated conic-gradient border on the Discord card, confetti on copy, and a Konami-code easter egg.
+A fixed Three.js (cdnjs r128) 3D background scene: a wireframe shape that morphs per section, a particle field and a camera that moves with scroll. While scrolling, the whole accent colour and card corner radius shift from section to section, with section dots on the right edge and a section counter. Cursor glow and ring, a card spotlight that follows the mouse, 3D tilt on the Discord card, magnetic buttons, scroll reveal with stagger, heading decode effect, a tech marquee, an animated conic-gradient border on the Discord card, confetti on copy, and a Konami-code easter egg.
 
 TOOLS PAGE (/tools)
 - Calculator with its own expression parser (no eval) and keyboard support.
@@ -239,7 +239,7 @@ FILES (each starts with <<<FILE path>>> and ends with <<<END FILE>>>)`;
 const FULL_TAIL = `END OF FILES. Now write every file, apply the replacements and the required credit, then give the run steps.`;
 const PF = [['name','Name'],['tag','Role line'],['bio','Short bio'],['did','Discord user ID'],['gh','GitHub URL'],['tg','Telegram URL'],['mail','Email'],['stack','Languages / tools']];
 $('pfFields').innerHTML = PF.map(([k, l]) => `<label>${l}<input id="pf-${k}" placeholder="Example" autocomplete="off"></label>`).join('');
-const FILES = [['index.html','frontend/index.html'],['css/style.css','frontend/css/style.css'],['css/fx.css','frontend/css/fx.css'],['css/tools.css','frontend/css/tools.css'],['js/main.js','frontend/js/main.js'],['js/fx.js','frontend/js/fx.js'],['js/tools.js','frontend/js/tools.js'],['tools/index.html','frontend/tools/index.html'],['tools/calculator.html','frontend/tools/calculator.html'],['tools/devex.html','frontend/tools/devex.html'],['tools/crypto.html','frontend/tools/crypto.html'],['tools/prompt.html','frontend/tools/prompt.html'],['template/server.js.txt','backend/server.js'],['template/package.json.txt','package.json'],['template/netlify.toml.txt','netlify.toml']];
+const FILES = [['index.html','frontend/index.html'],['css/style.css','frontend/css/style.css'],['css/fx.css','frontend/css/fx.css'],['css/scene.css','frontend/css/scene.css'],['css/tools.css','frontend/css/tools.css'],['js/scene.js','frontend/js/scene.js'],['js/main.js','frontend/js/main.js'],['js/fx.js','frontend/js/fx.js'],['js/tools.js','frontend/js/tools.js'],['tools/index.html','frontend/tools/index.html'],['tools/calculator.html','frontend/tools/calculator.html'],['tools/devex.html','frontend/tools/devex.html'],['tools/crypto.html','frontend/tools/crypto.html'],['tools/prompt.html','frontend/tools/prompt.html'],['template/server.js.txt','backend/server.js'],['template/package.json.txt','package.json'],['template/netlify.toml.txt','netlify.toml']];
 let SRC = null;
 const fill = t => t.replace(/\{\{(\w+)\}\}/g, (_, k) => $('pf-' + k).value.trim() || 'Example');
 const build = () => { $('pfOut').value = $('pfFull').checked && SRC ? fill(FULL_HEAD) + '\n\n' + SRC.map(([p, t]) => `<<<FILE ${p}>>>\n${t}\n<<<END FILE>>>`).join('\n\n') + '\n\n' + fill(FULL_TAIL) : fill(PROMPT); };
