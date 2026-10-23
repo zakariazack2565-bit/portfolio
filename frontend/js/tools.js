@@ -257,3 +257,8 @@ $('pfCopy').onclick = async () => {
 };
 
 }
+
+if (PAGE === 'hub') {
+  const g = document.querySelector('.tgrid'); document.querySelector('.tools').classList.add('hub'); const fw = Object.assign(document.createElement('div'), { className: 'floorwrap' }); fw.append(Object.assign(document.createElement('div'), { className: 'floor' })); g.after(fw);
+  if (matchMedia('(hover:hover) and (pointer:fine)').matches) addEventListener('pointermove', e => { g.style.setProperty('--ry', ((e.clientX / innerWidth - .5) * 14).toFixed(2) + 'deg'); g.style.setProperty('--rx', (6 - (e.clientY / innerHeight - .5) * 8).toFixed(2) + 'deg'); }, { passive: true });
+}

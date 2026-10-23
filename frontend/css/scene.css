@@ -23,7 +23,12 @@ body{background:color-mix(in srgb,rgb(var(--pr)) 5%,#050507)}
 .dots button:hover span{opacity:1}
 @media(max-width:900px){
 .dots{display:none}
-.hud{right:auto;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));font-size:12px;padding:8px 14px}
+.hud{right:12px;left:auto;transform:none;bottom:calc(12px + env(safe-area-inset-bottom,0px));font-size:0;padding:7px 11px;gap:4px}
+.hud b,.hud em{font-size:12px}
 .toasts{bottom:auto;top:76px;left:12px;right:12px}
 .glass{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .aurora i:nth-child(3){display:none}}
+/* content lives in the world: depth tilt + glass cards on desktop */
+main>section{transform:perspective(1400px) rotateX(calc(var(--d,0)*5deg)) translateZ(calc(var(--d,0)*-60px))}
+@media(min-width:901px){.card,.tc,.coincard,.tool,.vibe{background-color:rgba(14,14,20,.5);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
+@media(max-width:900px){main>section{transform:none}.card,.tc{background-color:rgba(14,14,20,.72)}}

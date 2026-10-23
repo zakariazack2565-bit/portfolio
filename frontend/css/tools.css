@@ -48,3 +48,21 @@ textarea{width:100%;margin-top:16px;background:#08080c;border:1px solid var(--li
 .tcard:hover{transform:translateY(-8px);border-color:var(--p);box-shadow:var(--glow)}.tcard:hover::before{opacity:1}
 .tcard:hover .arr{transform:translateX(10px)}.tcard:hover::after{color:var(--p);transform:translate(5px,-5px)}
 @media(max-width:720px){.tgrid{grid-template-columns:1fr}}
+/* Tools redesign: holo deck (hub) + module frames (tools) */
+.tools.hub{perspective:1500px}
+.tools.hub .tgrid{display:flex;gap:18px;transform-style:preserve-3d;transform:rotateX(var(--rx,6deg)) rotateY(var(--ry,0deg));transition:transform .3s ease-out;margin:56px 0 0}
+.tools.hub .tcard{flex:1 1 0;min-width:0;background:rgba(14,14,20,.6);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transform:rotateY(calc(var(--a)*1deg)) translateZ(var(--z));transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s;animation:scanIn .9s cubic-bezier(.2,.8,.2,1) both,bob 6s ease-in-out infinite;animation-delay:calc(var(--n)*.14s),calc(var(--n)*-1.3s)}
+.tools.hub .tcard:nth-child(1){--a:14;--z:-30px;--n:0}.tools.hub .tcard:nth-child(2){--a:5;--z:10px;--n:1}.tools.hub .tcard:nth-child(3){--a:-5;--z:10px;--n:2}.tools.hub .tcard:nth-child(4){--a:-14;--z:-30px;--n:3}
+.tools.hub .tcard:hover{transform:rotateY(0) translateZ(90px) scale(1.04)}
+.tcard .ic{width:fit-content;filter:drop-shadow(0 0 14px var(--p));animation:bob 4s ease-in-out infinite}
+@keyframes scanIn{from{clip-path:inset(0 0 100% 0);opacity:0}to{clip-path:inset(0);opacity:1}}
+@keyframes bob{50%{translate:0 -8px}}
+.floor{height:260px;margin-top:-6px;transform:perspective(500px) rotateX(62deg);transform-origin:50% 0;background-image:linear-gradient(rgba(168,85,247,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(168,85,247,.3) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(#000,transparent 85%);mask-image:linear-gradient(#000,transparent 85%);animation:floor 3s linear infinite}
+@keyframes floor{to{background-position:0 56px}}
+.tool{position:relative;overflow:hidden}
+.tool::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--p),transparent);box-shadow:0 0 18px var(--p);animation:beam 1.4s .4s both;pointer-events:none}
+@keyframes beam{from{top:0;opacity:1}to{top:100%;opacity:0}}
+.tool h2::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:10px;vertical-align:2px;background:#23d18b;box-shadow:0 0 10px #23d18b;animation:led 2s infinite}
+@keyframes led{50%{opacity:.35}}
+@media(max-width:900px){.tools.hub .tgrid{flex-direction:column;transform:none}.tools.hub .tcard{transform:none}.tools.hub .tcard:hover{transform:translateY(-4px)}.floor{display:none}}
+.floorwrap{overflow:hidden;margin-top:-6px}.floor{margin-top:0}
