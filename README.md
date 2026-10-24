@@ -27,6 +27,12 @@ Netlify / Vercel / Cloudflare Pages: publish the `frontend` folder (`netlify.tom
 ## Public APIs used (no keys)
 Lanyard, CoinGecko, Binance market data, open.er-api.com, fawazahmed0 currency-api.
 
-
-dont forget to give me credits
-:) hehe
+## React + TypeScript (v2)
+The home page is now a Vite + React + TypeScript app (`frontend/src`). Static files (CSS, the 3D world `js/scene.js`, effects `js/fx.js`, tool pages, assets) live in `frontend/public` and are copied as is.
+```
+npm install
+npm run dev      # dev server with hot reload
+npm run build    # type-check + build into dist/
+npm start        # serve dist/ at http://localhost:3000
+```
+**Render:** Build Command `npm install && npm run build`, Start Command `npm start` (Web Service), or Static Site with Publish Directory `dist`.

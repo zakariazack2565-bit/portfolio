@@ -1,2 +1,4 @@
-{ "name": "zack-portfolio", "version": "1.0.0", "private": true,
-  "scripts": { "start": "node backend/server.js" }, "engines": { "node": ">=18" } }
+{ "name": "zack-portfolio", "version": "2.0.0", "private": true,
+  "scripts": { "dev": "vite", "build": "tsc --noEmit && vite build", "start": "node backend/server.js" },
+  "dependencies": { "react": "^18.3.1", "react-dom": "^18.3.1", "vite": "^5.4.0", "@vitejs/plugin-react": "^4.3.0", "typescript": "^5.5.0", "@types/react": "^18.3.0", "@types/react-dom": "^18.3.0" },
+  "engines": { "node": ">=18" } }

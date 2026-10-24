@@ -1,0 +1,116 @@
+/* ULTRA layer */
+.boot{position:fixed;inset:0;z-index:100;background:#050507;display:grid;place-items:center;transition:opacity .6s,transform .7s cubic-bezier(.7,0,.2,1)}
+.boot.off{opacity:0;transform:scale(1.06);pointer-events:none}
+.boot b{font-size:clamp(34px,8vw,64px);font-weight:800;letter-spacing:-.03em}.boot span{color:var(--p)}
+.boot i{display:block;height:4px;border-radius:4px;background:rgba(255,255,255,.1);margin:18px 0 10px;overflow:hidden}
+.boot u{display:block;height:100%;width:0;background:var(--p);box-shadow:0 0 14px var(--p);transition:width 1.1s cubic-bezier(.6,0,.2,1)}
+.boot.go u{width:100%}.boot small{color:var(--mut);font-size:13px}
+html.booting .hero>*{animation-play-state:paused}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 25%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 50% 25%,#000,transparent 72%)}
+.aurora{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.aurora i{position:absolute;width:62vmax;height:62vmax;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.22),transparent 62%);animation:drift 24s ease-in-out infinite alternate}
+.aurora i:nth-child(1){left:-20vmax;top:-20vmax}.aurora i:nth-child(2){right:-25vmax;top:30vh;animation-duration:30s;background:radial-gradient(circle,rgba(168,85,247,.16),transparent 62%)}.aurora i:nth-child(3){left:20vw;bottom:-35vmax;animation-duration:36s}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.15)}}
+.prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--p2),var(--p),#e9d5ff);box-shadow:0 0 12px var(--p)}
+.cglow,.cring{position:fixed;left:0;top:0;pointer-events:none;opacity:0}
+.cglow{width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,.14),transparent 65%);z-index:-1;transition:opacity .4s}
+.cring{width:36px;height:36px;z-index:70;border-radius:50%;border:1.5px solid rgba(168,85,247,.8);transition:opacity .4s,width .25s,height .25s,margin .25s,background .25s}
+.cring.big{width:56px;height:56px;margin:-10px 0 0 -10px;background:rgba(168,85,247,.12)}
+/* reveal: animation based, so hover/tilt transforms stay snappy */
+.reveal{transform:none;transition:none}
+.reveal.in{animation:rev .8s cubic-bezier(.2,.8,.2,1) backwards}
+@keyframes rev{from{opacity:0;transform:translateY(26px)}}
+.card.reveal,.dc.reveal,.vibe.reveal,.contact.reveal{transition:transform .2s ease-out,border-color .6s,box-shadow .6s}
+.card:hover,.tc:hover,.act:hover,.vibe:hover,.contact:hover,.dc:hover{background-image:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(168,85,247,.18),transparent 70%)}
+h1{transition:text-shadow .2s}h1:hover{text-shadow:3px 0 rgba(168,85,247,.9),-3px 0 rgba(56,189,248,.8)}
+.dc{--mood:#a855f7;border-color:color-mix(in srgb,var(--mood) 45%,transparent);box-shadow:0 0 60px color-mix(in srgb,var(--mood) 28%,transparent),0 20px 60px rgba(0,0,0,.5)}
+.dc::before{background:radial-gradient(circle,color-mix(in srgb,var(--mood) 40%,transparent),transparent 65%)}
+@property --a{syntax:'<angle>';initial-value:0deg;inherits:false}
+.dc::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;background:conic-gradient(from var(--a),transparent 0 55%,var(--mood),#fff 78%,transparent 80%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:ang 6s linear infinite}
+@keyframes ang{to{--a:360deg}}
+.act.spotify .art{border-radius:50%;animation:vin 14s linear infinite;-webkit-mask-image:radial-gradient(circle,transparent 0 8%,#000 9%);mask-image:radial-gradient(circle,transparent 0 8%,#000 9%)}
+@keyframes vin{to{transform:rotate(360deg)}}
+.eq{display:inline-flex;gap:2px;align-items:flex-end;height:12px;margin-left:8px;vertical-align:-1px}.eq i{width:3px;background:#1ed760;border-radius:2px;animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}.eq i:nth-child(4){animation-delay:.1s}
+@keyframes eq{0%,100%{height:3px}50%{height:12px}}
+.marq{overflow:hidden;padding:26px 0;border-block:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marq>div{display:flex;width:max-content;animation:mq 38s linear infinite}.marq:hover>div{animation-play-state:paused}
+.marq span,.marq em{padding-right:34px}.marq span{font-size:clamp(40px,7vw,80px);font-weight:800;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px rgba(168,85,247,.6);white-space:nowrap;transition:color .3s}.marq span:hover{color:var(--p)}
+.marq em{color:var(--p);font-style:normal;font-size:28px;align-self:center}
+@keyframes mq{to{transform:translateX(-50%)}}
+.hero{position:relative}
+.hero>.term{position:absolute;right:20px;top:50%;margin-top:-110px;width:min(380px,34%);border-radius:24px;overflow:hidden;animation:tIn 1s 1.2s both;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace}
+@keyframes tIn{from{opacity:0;transform:translateY(30px) rotate(2deg)}}
+.tb{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);color:var(--mut)}
+.tb i{width:11px;height:11px;border-radius:50%;background:#23d18b}.tb i:first-child{background:#f04747}.tb i:nth-child(2){background:#f5b83d}.tb span{margin-left:auto}
+.term pre{padding:16px 18px 20px;white-space:pre-wrap;color:#d8b4fe;min-height:170px;font:inherit}
+.tl{color:#23d18b;font-weight:400}.caret{display:inline-block;width:8px;height:15px;background:var(--p);vertical-align:-2px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media(min-width:1001px){h1{font-size:clamp(56px,7vw,84px)}}
+@media(max-width:1000px){.hero>.term{position:static;margin:10px 0 0;width:100%;max-width:520px}}
+.toasts{position:fixed;left:16px;bottom:16px;z-index:80;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.toast{display:flex;gap:10px;align-items:center;padding:12px 18px;border-radius:18px;font-size:14px;max-width:min(360px,calc(100vw - 32px));animation:tst .5s cubic-bezier(.2,.9,.3,1.2);transition:opacity .4s,transform .4s;border-color:rgba(168,85,247,.4)}
+.toast.out{opacity:0;transform:translateX(-20px)}.toast span{font-size:18px}
+@keyframes tst{from{opacity:0;transform:translateX(-30px) scale(.95)}}
+.cf{position:fixed;width:8px;height:8px;border-radius:2px;pointer-events:none;z-index:90}
+html.party main{animation:hue 5s linear infinite}@keyframes hue{to{filter:hue-rotate(360deg)}}
+/* Portrait Discord profile card, lives beside the hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;justify-content:stretch;gap:48px}
+.hl{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
+.hl>*{animation:in .8s cubic-bezier(.2,.8,.2,1) both}
+.hl>:nth-child(2){animation-delay:.1s}.hl>:nth-child(3){animation-delay:.2s}.hl>:nth-child(4){animation-delay:.3s}.hl>:nth-child(5){animation-delay:.4s}.hl>:nth-child(6){animation-delay:.5s}
+html.booting .hl>*{animation-play-state:paused}
+.term,.empty,#stateText{display:none!important}
+.dcwrap{justify-self:end;max-width:100%}
+.dc{width:340px;max-width:100%;min-height:580px;display:flex;flex-direction:column;padding:0}
+.dc:not([data-n="0"]):not([data-n="1"]){width:min(560px,100%)}
+.dc.reveal{transition:transform .2s ease-out,border-color .6s,box-shadow .6s,width .5s cubic-bezier(.2,.8,.2,1)}
+.banner{height:128px;position:relative;background:linear-gradient(135deg,#1b0b3a,#5b21b6 55%,#a855f7) center/cover}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(15,15,20,.6))}
+.banner .live{position:absolute;top:12px;right:12px;z-index:1;background:rgba(10,10,14,.6)}
+.dc .av{margin:-48px 0 0 22px;z-index:1;border-radius:50%;box-shadow:0 0 0 6px #10101a}
+.dc .who{padding:14px 22px 18px}
+#dtag{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:3px 10px;border-radius:10px;background:rgba(255,255,255,.07);font-size:13px;font-weight:600;color:var(--tx)!important}
+#dtag img{width:16px;height:16px}
+#acts{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 16px 18px;margin-top:auto}
+.act{flex:1 0 190px;flex-direction:column;text-align:center;scroll-snap-align:start;padding:16px 14px}
+.dc[data-n="1"] .act{flex-basis:100%}
+.act .art{width:120px;height:120px}.act .meta{width:100%;flex:none}
+.act .s{white-space:normal}
+@media(max-width:1000px){.hero{grid-template-columns:1fr;min-height:auto;gap:36px}.dcwrap{justify-self:center;width:100%;display:flex;justify-content:center}.dc{min-height:540px}}
+/* custom emojis + animated status dots */
+.em{height:1.25em;width:auto;vertical-align:-.25em;display:inline-block}
+.ic .em{height:42px}.pi .em{height:34px}.wave .em{height:.8em;vertical-align:-.05em}.toast .em{height:22px}
+.contact>.em{display:block;margin:0 auto 10px;height:68px}
+.soc img{object-fit:contain;border-radius:6px}
+#status,#heroDot{box-shadow:none;background-repeat:no-repeat;background-position:center;background-size:contain}
+#status{background-color:#10101a;border:3px solid #10101a;width:26px;height:26px}
+#heroDot{background-color:transparent;width:18px;height:18px}
+#status.online,#heroDot.online{background-image:url(https://cdn.discordapp.com/emojis/1012675541675016223.gif?size=48)}
+#status.offline,#heroDot.offline{background-image:url(https://cdn.discordapp.com/emojis/1012675539011637288.gif?size=48)}
+#status.idle,#heroDot.idle{background-image:url(https://cdn.discordapp.com/emojis/674781101306413116.gif?size=48)}
+#status.dnd,#heroDot.dnd{background-image:url(https://cdn.discordapp.com/emojis/674781087075139584.gif?size=48)}
+/* crypto tiles: click to copy */
+#crypto{display:block}
+.coins{display:flex;flex-wrap:wrap;gap:14px}
+.coin{width:88px;height:88px;border-radius:28px;display:grid;place-items:center;background:#0f0f14;border:1px solid var(--line);cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s,background .25s}
+.coin img{width:38px;height:38px;transition:transform .3s}
+.coin:hover,.coin:focus-visible{transform:translateY(-6px);border-color:var(--p);box-shadow:var(--glow)}.coin:hover img{transform:scale(1.15) rotate(-5deg)}
+.coin.ok{background:rgba(35,209,139,.14);border-color:#23d18b;animation:pop .35s}
+.coininfo{margin-top:18px;border-radius:22px;padding:16px 20px;display:flex;flex-direction:column;gap:6px}
+#ciAddr{font:13px/1.5 ui-monospace,monospace;color:var(--mut);word-break:break-all;min-height:1.5em}
+@media(max-width:520px){.coin{width:calc((100% - 42px)/4);height:auto;aspect-ratio:1}}
+/* status dots: coloured circle shows if the emoji image fails */
+#status.online,#heroDot.online{background-image:url(https://cdn.discordapp.com/emojis/1012675541675016223.gif?size=48),radial-gradient(circle,#23d18b 0 55%,transparent 58%)}
+#status.offline,#heroDot.offline{background-image:url(https://cdn.discordapp.com/emojis/1012675539011637288.gif?size=48),radial-gradient(circle,#5b5b6b 0 55%,transparent 58%)}
+#status.idle,#heroDot.idle{background-image:url(https://cdn.discordapp.com/emojis/674781101306413116.gif?size=48),radial-gradient(circle,#f5b83d 0 55%,transparent 58%)}
+#status.dnd,#heroDot.dnd{background-image:url(https://cdn.discordapp.com/emojis/674781087075139584.gif?size=48),radial-gradient(circle,#f04747 0 55%,transparent 58%)}
+/* Discord card grows with its content instead of clipping or scrolling */
+.dc,.dc:not([data-n="0"]):not([data-n="1"]){width:max-content;min-width:min(340px,100%);max-width:min(460px,100%)}
+.dc:not([data-n="0"]):not([data-n="1"]){max-width:min(640px,100%)}
+.dc .who{min-width:0}.dc .who h2{font-size:clamp(22px,3vw,28px);line-height:1.2;overflow-wrap:anywhere}
+#acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));overflow:visible}
+.act{min-width:0}
+.act .t{white-space:normal;overflow-wrap:anywhere}
+.act .kind,.act .s,.custom{overflow-wrap:anywhere}
+.g4{grid-template-columns:repeat(4,1fr)}@media(max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.g4{grid-template-columns:1fr}}

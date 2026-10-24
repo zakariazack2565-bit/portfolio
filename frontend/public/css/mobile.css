@@ -19,3 +19,9 @@ footer{padding-bottom:calc(32px + env(safe-area-inset-bottom,0px))}
  input,select,textarea{font-size:16px}
  .toast{font-size:13px;padding:10px 14px}footer{padding:56px 16px 24px}}
 @media(max-width:380px){.res4{grid-template-columns:1fr}.coin{width:calc((100% - 28px)/3)}.btn{padding:11px 16px}}
+/* Discord card fix: the hero column must not grow with the card's content */
+@media(max-width:1000px){
+ .hero{grid-template-columns:minmax(0,1fr)}
+ .dcwrap{min-width:0}
+ .dc,.dc:not([data-n="0"]):not([data-n="1"]){width:100%;min-width:0}
+}

@@ -2,7 +2,7 @@
 const http = require('http'), fs = require('fs'), path = require('path');
 try { fs.readFileSync(path.join(__dirname, '../.env'), 'utf8').split('\n').forEach(l => {
   const m = l.match(/^\s*([A-Z_]+)\s*=\s*(.*)$/); if (m && !process.env[m[1]]) process.env[m[1]] = m[2]; }); } catch {}
-const root = path.join(__dirname, '../frontend');
+const root = path.join(__dirname, '../dist');   // built by: npm run build
 const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png' };
 http.createServer((req, res) => {
   const url = req.url.split('?')[0];
@@ -15,7 +15,7 @@ http.createServer((req, res) => {
   const file = path.join(root, rel);
   if (!file.startsWith(root)) { res.writeHead(403); return res.end(); }
   fs.readFile(file, (e, data) => {
-    if (e) { res.writeHead(404); return res.end('Not found'); }
+    if (e) { if (!path.extname(file)) return fs.readFile(path.join(root, 'index.html'), (e2, d2) => { if (e2) { res.writeHead(404); return res.end('Not found'); } res.writeHead(200, { 'Content-Type': 'text/html' }); res.end(d2); }); res.writeHead(404); return res.end('Not found'); }
     res.writeHead(200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' });
     res.end(data);
   });
